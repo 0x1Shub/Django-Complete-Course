@@ -42,6 +42,11 @@ class Order(models.Model):
     # One-to-Many Relationship
     customer = models.ForeignKey(Customer, on_delete = models.CASCADE)
 
+    # Many-to-Many Relationship
+    # Single Order contain multiple products
+    # Single Product can be in multiple orders
+    product = models.ManyToManyField(Product)
+
 
 # One-to-One relationship
 class Address(models.Model):
