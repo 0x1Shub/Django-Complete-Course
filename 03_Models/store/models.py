@@ -54,3 +54,8 @@ class Address(models.Model):
     city = models.CharField(max_length=255)
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)
 
+
+
+class Collection(models.Model):
+    title = models.CharField(max_length=255)
+    featured_product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True, related_name="+")
