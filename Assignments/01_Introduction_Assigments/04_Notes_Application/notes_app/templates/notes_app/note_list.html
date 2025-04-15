@@ -1,0 +1,17 @@
+<h1>Notes App</h1>
+<a href="{% url 'note_create' %}">Add Note</a>
+
+{% for category, notes in notes_by_category.items %}
+    <h2>{{ category.name }}</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <strong>{{ note.title }}</strong>: {{ note.content }}
+                [<a href="{% url 'note_update' note.pk %}">Edit</a>]
+                [<a href="{% url 'note_delete' note.pk %}">Delete</a>]
+            </li>
+        {% empty %}
+            <li>No notes in this category.</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
