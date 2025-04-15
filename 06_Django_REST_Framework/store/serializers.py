@@ -10,3 +10,19 @@ class ProductSerializer(serializers.Serializer):
 
     def calculate_tax(self, product: models.Product):
         return product.unit_price * Decimal(1.1)
+
+
+# Model Serializers
+class ProductModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Product
+        fields = ['id', 'title', 'slug', 'inventory', 'description', 'unit_price', 'collection']
+        # fields = '__all__' # Bad Practice
+
+    price_with_tax = serializers.SerializerMethodField(method_name = 'calculate_tax') 
+
+class CollectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Collection
+        fields = ['id', 'title']
+
