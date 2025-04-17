@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hello_app',
     'dynamic_route',
+    'template_assignment',
 ]
 
 MIDDLEWARE = [

@@ -21,5 +21,6 @@ from hello_app.views import hello_shubham
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello_shubham),  # ← ROOT URL returns the view
-    path('greet/<str:user>', include('dynamic_route.urls'))
+    path('greet/<str:user>', include('dynamic_route.urls')),
+    path('template/', include('template_assignment.urls'))
 ]
